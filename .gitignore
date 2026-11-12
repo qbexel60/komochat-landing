@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env and logs
+.env*
+npm-debug.log*
+
+# misc
+.DS_Store
+/.claude/
+
+# Riad's style kit (third-party screenshots and fonts): a local reference only
+/omniagent-design/

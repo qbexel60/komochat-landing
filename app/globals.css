@@ -246,7 +246,26 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero-rise {
-    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+}
+@keyframes shine {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  85%,
+  100% {
+    transform: translateX(260%);
+  }
+}
+.shine {
+  animation: shine 4.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shine {
+    animation: none;
+    opacity: 0;
   }
 }
 @keyframes float {

@@ -30,9 +30,10 @@ export default function Hero() {
           to a{' '}
           <span
             aria-hidden
-            className="wiggle mx-0.5 inline-grid h-[1.12em] w-[1.12em] translate-y-[0.08em] place-items-center rounded-[32%] bg-[linear-gradient(140deg,#8c84ff_0%,#5b4bff_45%,#3827c8_100%)] align-baseline shadow-[0_10px_24px_-6px_rgb(91_75_255/0.55),0_0_0_4px_#fff]"
+            className="relative mx-0.5 inline-grid h-[1.12em] w-[1.12em] place-items-center overflow-hidden rounded-[30%] bg-[linear-gradient(140deg,#8c84ff_0%,#5b4bff_45%,#3827c8_100%)] align-[-0.2em] shadow-[0_10px_24px_-6px_rgb(91_75_255/0.55),0_0_0_4px_#fff]"
           >
-            <KomoSymbol className="h-[0.58em] w-[0.58em] text-white" />
+            <span className="shine pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-[linear-gradient(100deg,transparent,rgb(255_255_255/0.45),transparent)]" />
+            <KomoSymbol className="relative h-[0.58em] w-[0.58em] text-white" />
           </span>{' '}
           late reply
         </h1>

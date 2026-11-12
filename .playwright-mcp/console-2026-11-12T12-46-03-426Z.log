@@ -2172,3 +2172,7 @@ https://react.dev/link/hydration-mismatch
 [ 2448761ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
 [ 2470521ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
 [ 2492287ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
+[ 3061277ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
+[ 3082631ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
+[ 3105145ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1
+[ 3126700ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3050/brand/komobox-k-purple.svg:1

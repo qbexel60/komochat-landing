@@ -63,7 +63,7 @@ export default function Nav() {
         <div className="flex h-14 items-center justify-between gap-4 pl-4 pr-2 sm:h-16 sm:pl-5">
           <a href="#top" className="shrink-0 rounded-lg" aria-label="KomoChat, back to top">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/komochat-logo-color-on-light.svg" alt="" width={150} height={25} className="h-[22px] w-auto sm:h-6" />
+            <img src="/brand/komochat-logo-color-on-light.svg" alt="" width={150} height={25} className="h-6 w-auto sm:h-7" />
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">

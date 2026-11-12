@@ -257,7 +257,7 @@ export default function HeroStory() {
 
         {/* ---------- KomoChat: tall bar <-> orb ---------- */}
         <m.div
-          className="absolute left-1/2 top-1/2 z-20 grid -translate-x-1/2 -translate-y-1/2 place-items-center overflow-hidden shadow-[0_24px_50px_-14px_rgb(56_39_200/0.55),0_0_0_6px_rgb(255_255_255/0.7)]"
+          className="absolute inset-0 z-20 m-auto grid place-items-center overflow-hidden shadow-[0_24px_50px_-14px_rgb(56_39_200/0.55),0_0_0_6px_rgb(255_255_255/0.7)]"
           initial={false}
           animate={
             isBar
@@ -293,7 +293,7 @@ export default function HeroStory() {
           {!isBar && (
             <m.div
               key="pill"
-              className="absolute left-1/2 z-30 -translate-x-1/2"
+              className="absolute inset-x-0 z-30 mx-auto w-fit"
               style={{ top: `calc(50% + ${orbR + 20}px)` }}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}

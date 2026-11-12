@@ -125,6 +125,12 @@
   padding: 10px 10px 10px 24px;
   font-size: 16px;
 }
+.btn-plain.btn-md {
+  padding: 9px 18px;
+}
+.btn-plain.btn-lg {
+  padding: 13px 26px;
+}
 .btn-primary {
   background: var(--color-brand);
   color: #fff;
@@ -145,11 +151,12 @@
   background: var(--color-brand-50);
 }
 .btn-ghost {
-  background: #fff;
+  background: rgb(255 255 255 / 0.7);
   color: var(--color-ink);
   border: 1px solid var(--color-line);
 }
 .btn-ghost:hover {
+  background: #fff;
   border-color: var(--color-brand-300);
 }
 .btn-dot {

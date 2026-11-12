@@ -2,6 +2,7 @@
 
 /** KomoChat turns on inside AutoMate, so every sign-up goes to AutoMate. */
 export const SIGN_UP_URL = 'https://automate.qbexel.com/sign-up';
+export const SIGN_IN_URL = 'https://automate.qbexel.com/sign-in';
 export const AUTOMATE_URL = 'https://automate.qbexel.com';
 export const QBEXEL_URL = 'https://qbexel.com';
 

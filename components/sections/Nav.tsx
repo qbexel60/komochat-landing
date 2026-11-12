@@ -3,11 +3,12 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import PillLink from '@/components/ui/PillLink';
-import { NAV_LINKS, SIGN_UP_URL } from '@/lib/links';
+import { NAV_LINKS, SIGN_IN_URL, SIGN_UP_URL } from '@/lib/links';
 
 /**
- * Top bar: clear over the hero, a white floating bar once the page moves.
- * It slides away while reading down and comes back on the way up.
+ * Top bar, matching the AutoMate page: a white floating pill. It slides away
+ * while reading down and comes back on the way up. Sign-in and sign-up go to
+ * AutoMate, where KomoChat runs.
  */
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,29 +45,25 @@ export default function Nav() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
-  const showBar = scrolled || open;
-
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-300 ease-out sm:px-4 ${
-        hidden && !open ? '-translate-y-[120%]' : 'translate-y-0'
+      className={`fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-300 ease-out sm:px-4 sm:pt-4 ${
+        hidden && !open ? '-translate-y-[130%]' : 'translate-y-0'
       }`}
     >
       <nav
         aria-label="Main"
-        className={`mx-auto max-w-[1200px] rounded-[20px] border transition-[background-color,border-color,box-shadow] duration-300 ${
-          showBar
-            ? 'border-line bg-white shadow-[var(--shadow-float)]'
-            : 'border-transparent bg-transparent shadow-none'
+        className={`mx-auto max-w-[1120px] rounded-[22px] border border-white/80 bg-white/85 backdrop-blur-md transition-shadow duration-300 supports-[not(backdrop-filter:blur(1px))]:bg-white ${
+          scrolled || open ? 'shadow-[var(--shadow-float)]' : 'shadow-[var(--shadow-soft)]'
         }`}
       >
-        <div className="flex h-14 items-center justify-between gap-4 pl-4 pr-2 sm:h-16 sm:pl-5">
+        <div className="flex h-14 items-center justify-between gap-4 pl-4 pr-2 sm:h-[60px] sm:pl-5">
           <a href="#top" className="shrink-0 rounded-lg" aria-label="KomoChat, back to top">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/brand/komochat-logo-color-on-light.svg" alt="" width={150} height={25} className="h-6 w-auto sm:h-7" />
+            <img src="/brand/komochat-logo-color-on-light.svg" alt="" width={115} height={24} className="h-[22px] w-auto sm:h-6" />
           </a>
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-0.5 lg:flex">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
@@ -79,9 +76,15 @@ export default function Nav() {
             ))}
           </ul>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
+            <a
+              href={SIGN_IN_URL}
+              className="hidden rounded-full px-3.5 py-2 text-[15px] font-semibold text-ink transition-colors hover:bg-brand-50 sm:inline-block"
+            >
+              Sign in
+            </a>
             <PillLink href={SIGN_UP_URL} className="hidden sm:inline-flex">
-              Create AutoMate account
+              Create your account
             </PillLink>
             <button
               type="button"
@@ -110,9 +113,14 @@ export default function Nav() {
               </li>
             ))}
           </ul>
-          <PillLink href={SIGN_UP_URL} className="mt-3 w-full justify-between sm:hidden">
-            Create your AutoMate account
-          </PillLink>
+          <div className="mt-3 grid gap-2 sm:hidden">
+            <PillLink href={SIGN_UP_URL} className="w-full justify-between">
+              Create your account
+            </PillLink>
+            <PillLink href={SIGN_IN_URL} variant="ghost" dot={false} className="w-full justify-center">
+              Sign in
+            </PillLink>
+          </div>
         </div>
       </nav>
     </header>

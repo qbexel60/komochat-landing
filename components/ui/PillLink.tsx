@@ -6,29 +6,34 @@ type Props = {
   children: ReactNode;
   variant?: 'primary' | 'light' | 'ghost';
   size?: 'md' | 'lg';
+  /** The dot that grows into an arrow on hover. Off for quiet second buttons. */
+  dot?: boolean;
   className?: string;
   external?: boolean;
 };
 
-/** The page's pill button: label plus a dot that grows into an arrow on hover. */
+/** The page's pill button (same family as the AutoMate page): label plus a dot that grows into an arrow on hover. */
 export default function PillLink({
   href,
   children,
   variant = 'primary',
   size = 'md',
+  dot = true,
   className = '',
   external = false,
 }: Props) {
   return (
     <a
       href={href}
-      className={`btn btn-${variant} btn-${size} ${className}`}
+      className={`btn btn-${variant} btn-${size} ${dot ? '' : 'btn-plain'} ${className}`}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       <span>{children}</span>
-      <span className="btn-dot" aria-hidden>
-        <ArrowRight strokeWidth={2.5} />
-      </span>
+      {dot && (
+        <span className="btn-dot" aria-hidden>
+          <ArrowRight strokeWidth={2.5} />
+        </span>
+      )}
     </a>
   );
 }

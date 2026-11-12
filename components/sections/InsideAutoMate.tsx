@@ -241,7 +241,7 @@ function InboxMock() {
     <div className="w-full max-w-[560px] rounded-[22px] bg-white p-4 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.6)] sm:p-5">
       <div className="flex items-center justify-between border-b border-line pb-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/komobox-logo-color-on-light.svg" alt="KomoBox" width={110} height={24} className="h-[18px] w-auto" />
+        <img src="/brand/komobox-logo-color-on-light.svg" alt="KomoBox" width={91} height={20} className="h-5 w-auto" />
         <p className="text-xs font-semibold text-muted">Team inbox</p>
       </div>
       <div className="mt-3 grid gap-3 sm:grid-cols-[180px_1fr]">

@@ -14,7 +14,7 @@ export default function Hero() {
       />
 
       <div className="mx-auto flex max-w-[1200px] flex-col items-center px-4 text-center sm:px-6">
-        <p className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm shadow-[var(--shadow-soft)]">
+        <p className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-3.5 py-1.5 text-[13px] shadow-[var(--shadow-soft)] sm:px-4 sm:text-sm">
           <Sparkle className="h-3.5 w-3.5 text-gold" />
           <span className="font-semibold text-ink">Launching soon</span>
           <span aria-hidden className="text-muted">·</span>

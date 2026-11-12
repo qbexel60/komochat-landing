@@ -1,7 +1,6 @@
 'use client';
 
 import { BadgePercent, BookOpenCheck, Image as ImageIcon, ShoppingBag, Tag, UserRound } from 'lucide-react';
-import { useReducedMotion } from 'motion/react';
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
 import PillLink from '@/components/ui/PillLink';
 import {
@@ -12,7 +11,7 @@ import {
   PhotoDemo,
   PriceDemo,
 } from '@/components/visuals/SituationDemos';
-import { useOnScreen } from '@/lib/hooks';
+import { useOnScreen, usePrefersReducedMotion } from '@/lib/hooks';
 import { SIGN_UP_URL } from '@/lib/links';
 
 const MOMENTS = [
@@ -69,7 +68,7 @@ export default function Situations() {
   const id = useId();
   const sectionRef = useRef<HTMLElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const onScreen = useOnScreen(sectionRef, '0px 0px -20% 0px');
   const [active, setActive] = useState(0);
   const [auto, setAuto] = useState(true);

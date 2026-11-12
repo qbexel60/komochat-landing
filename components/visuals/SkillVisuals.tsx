@@ -92,8 +92,8 @@ export function ChatVisual() {
           </span>
         </div>
       </div>
-      <div className="absolute inset-x-5 bottom-5 mx-auto flex h-[132px] max-w-[330px] flex-col justify-end gap-2 rounded-2xl border border-line bg-white p-3 shadow-[var(--shadow-float)]">
-        <AnimatePresence initial={false}>
+      <div className="absolute inset-x-5 bottom-5 mx-auto flex h-[140px] max-w-[330px] flex-col justify-end gap-2 overflow-hidden rounded-2xl border border-line bg-white p-3 shadow-[var(--shadow-float)]">
+        <AnimatePresence initial={false} mode="popLayout">
           {step >= 1 && (
             <m.div key="c" {...pop} className="flex flex-col">
               <Bubble from="customer">Apu, eta ki available? Kalo ta</Bubble>
@@ -159,7 +159,7 @@ export function SensesVisual() {
         return (
           <div
             key={n.label}
-            className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+            className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${n.x}%`, top: `${n.y}%` }}
           >
             <span
@@ -169,7 +169,7 @@ export function SensesVisual() {
             >
               <Icon className="h-5 w-5 text-brand" />
             </span>
-            <span className="rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-body shadow-sm">
+            <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-body shadow-sm">
               {n.label}
             </span>
           </div>

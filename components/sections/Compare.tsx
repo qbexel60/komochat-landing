@@ -6,12 +6,12 @@ import {
   m,
   useInView,
   useMotionValue,
-  useReducedMotion,
   useTransform,
 } from 'motion/react';
 import { ArrowRight, Check, Clock3, RotateCcw } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import KomoSymbol from '@/components/ui/KomoSymbol';
+import { usePrefersReducedMotion } from '@/lib/hooks';
 
 type Step = { title: string; text: string; at: number };
 
@@ -125,7 +125,7 @@ function Column({
 }) {
   const komo = kind === 'komo';
   const headRef = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const started = useInView(headRef, { once: true, margin: '0px 0px -30% 0px' });
   const [done, setDone] = useState(0);
   const shown = reduce ? steps.length : done;

@@ -1,9 +1,9 @@
 'use client';
 
-import { AnimatePresence, m, useReducedMotion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 import { BookOpenCheck, Instagram, MessageCircle, Mic, PackageCheck, Settings, UsersRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { useOnScreen } from '@/lib/hooks';
+import { useOnScreen, usePrefersReducedMotion } from '@/lib/hooks';
 
 /** One example night in a shop's inbox, newest on top. */
 const EVENTS = [
@@ -24,7 +24,7 @@ const ROW = 64;
 export default function ActivityFeed() {
   const ref = useRef<HTMLDivElement>(null);
   const on = useOnScreen(ref);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const [head, setHead] = useState(SHOWN - 1);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function ActivityFeed() {
   });
 
   return (
-    <div ref={ref} className="w-full rounded-[20px] border border-line bg-white p-4 shadow-[var(--shadow-float)]">
+    <div ref={ref} className="w-full rounded-[20px] border border-line bg-white p-3 shadow-[var(--shadow-float)] sm:p-4">
       <div className="flex items-center justify-between">
         <p className="flex items-center gap-2 text-sm font-bold text-ink">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -69,7 +69,7 @@ export default function ActivityFeed() {
                 animate={{ opacity: 1, y: k * ROW }}
                 exit={{ opacity: 0, y: SHOWN * ROW }}
                 transition={{ duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-                className="absolute inset-x-0 top-0 flex h-14 items-center gap-3 rounded-xl bg-brand-50 px-3"
+                className="absolute inset-x-0 top-0 flex h-14 items-center gap-2.5 rounded-xl bg-brand-50 px-2.5 sm:gap-3 sm:px-3"
               >
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-brand shadow-sm">
                   <Icon aria-hidden className="h-4 w-4" />
@@ -78,7 +78,7 @@ export default function ActivityFeed() {
                   <span className="block truncate text-[13px] font-semibold text-ink">{row.title}</span>
                   <span className="block truncate text-xs text-muted">{row.sub}</span>
                 </span>
-                <svg aria-hidden viewBox="0 0 16 16" className="ml-auto h-4 w-4 shrink-0 text-ok">
+                <svg aria-hidden viewBox="0 0 16 16" className="ml-auto hidden h-4 w-4 shrink-0 text-ok sm:block">
                   <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </m.li>

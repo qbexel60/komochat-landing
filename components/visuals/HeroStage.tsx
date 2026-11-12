@@ -1,9 +1,10 @@
 'use client';
 
-import { AnimatePresence, m, useInView, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { AnimatePresence, m, useInView, useScroll, useTransform } from 'motion/react';
 import { Instagram, MessageCircle, Mic, Shirt } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import KomoSymbol from '@/components/ui/KomoSymbol';
+import { usePrefersReducedMotion } from '@/lib/hooks';
 
 /** What KomoChat is doing, shown one after another under the orb. */
 const STATUS = [
@@ -20,7 +21,7 @@ const STATUS = [
  */
 export default function HeroStage() {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = usePrefersReducedMotion();
   const onScreen = useInView(ref, { margin: '0px 0px -5% 0px' });
   const [step, setStep] = useState(0);
 
@@ -40,7 +41,7 @@ export default function HeroStage() {
     <div
       ref={ref}
       data-paused={!onScreen}
-      className="relative mx-auto mt-10 h-[470px] w-full max-w-[1000px] px-4 sm:mt-14 sm:h-[540px] sm:px-6"
+      className="relative mx-auto mt-10 h-[500px] w-full max-w-[1000px] px-4 sm:mt-14 sm:h-[540px] sm:px-6"
     >
       <p className="sr-only">
         Illustration: KomoChat in the middle, with example customer messages around it: a price question on
@@ -93,7 +94,7 @@ export default function HeroStage() {
         </div>
 
         {/* Messenger question */}
-        <Chip className="left-0 top-[2%] sm:left-[6%] sm:top-[8%]" delay="0s">
+        <Chip className="left-4 top-[2%] sm:left-[6%] sm:top-[8%]" delay="0s">
           <div className="flex items-center gap-2.5 rounded-2xl bg-white py-2 pl-2 pr-4 shadow-[var(--shadow-float)]">
             <Avatar letter="N" icon="messenger" />
             <div className="text-left leading-tight">
@@ -104,7 +105,7 @@ export default function HeroStage() {
         </Chip>
 
         {/* Voice note */}
-        <Chip className="right-0 top-[16%] sm:right-[8%] sm:top-[14%]" delay="-2s">
+        <Chip className="right-4 top-[16%] sm:right-[8%] sm:top-[14%]" delay="-2s">
           <div className="flex items-center gap-2.5 rounded-full bg-white py-2 pl-2 pr-4 shadow-[var(--shadow-float)]">
             <span className="grid h-8 w-8 place-items-center rounded-full bg-brand text-white">
               <Mic className="h-4 w-4" />
@@ -147,7 +148,7 @@ export default function HeroStage() {
         </Chip>
 
         {/* New order */}
-        <Chip className="bottom-0 right-0 sm:bottom-[4%] sm:right-[14%]" delay="-1s">
+        <Chip className="bottom-0 right-4 sm:bottom-[4%] sm:right-[14%]" delay="-1s">
           <div
             className={`w-[212px] rounded-2xl bg-white p-3 text-left shadow-[var(--shadow-float)] ring-2 transition-[box-shadow] duration-500 ${
               placed ? 'ring-brand/40' : 'ring-transparent'

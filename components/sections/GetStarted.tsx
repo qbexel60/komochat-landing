@@ -7,13 +7,13 @@ import { EMAIL, PHONE_HREF, PHONE_LABEL, SIGN_UP_URL, WHATSAPP_URL } from '@/lib
 export default function GetStarted() {
   return (
     <section id="get-started" aria-labelledby="cta-title" className="mx-auto max-w-[1200px] px-4 pt-24 sm:px-6 sm:pt-32">
-      <div className="reveal relative overflow-hidden rounded-[32px] bg-[linear-gradient(125deg,#8c84ff_0%,#5b4bff_42%,#3827c8_100%)] px-6 py-14 text-center shadow-[0_30px_70px_-30px_rgb(56_39_200/0.7)] sm:px-12 sm:py-20">
+      <div className="reveal relative overflow-hidden rounded-[32px] bg-[linear-gradient(125deg,#8c84ff_0%,#5b4bff_42%,#3827c8_100%)] px-4 py-14 text-center shadow-[0_30px_70px_-30px_rgb(56_39_200/0.7)] sm:px-12 sm:py-20">
         {/* Big faint KomoChat symbol and a few gold sparkles */}
         <KomoSymbol className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] text-white/[0.07] sm:-right-16" />
         <KomoSymbol className="pointer-events-none absolute -bottom-32 -left-24 h-[320px] w-[320px] text-white/[0.05]" />
         <Sparkle className="absolute left-[12%] top-[18%] h-4 w-4 text-gold" />
         <Sparkle className="absolute bottom-[20%] right-[14%] h-3 w-3 text-gold/80" />
-        <Sparkle className="absolute right-[26%] top-[12%] h-2.5 w-2.5 text-white/60" />
+        <Sparkle className="absolute right-[26%] top-[12%] hidden h-2.5 w-2.5 text-white/60 sm:block" />
 
         <div className="relative mx-auto max-w-[680px]">
           <p className="mx-auto inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-white">

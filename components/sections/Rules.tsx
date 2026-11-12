@@ -35,7 +35,7 @@ export default function Rules() {
     <section id="rules" aria-labelledby="rules-title" className="mx-auto max-w-[1200px] px-4 pt-24 sm:px-6 sm:pt-32">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         <div className="reveal flex flex-col justify-center pb-4 sm:col-span-2 lg:col-span-1 lg:pb-0 lg:pr-6">
-          <h2 id="rules-title" className="h-section text-ink">
+          <h2 id="rules-title" className="text-[2rem] font-bold leading-[1.1] tracking-[-0.03em] text-balance text-ink sm:text-[2.5rem]">
             You set the rules. <span className="text-gradient">KomoChat follows them.</span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-body">
@@ -50,13 +50,13 @@ export default function Rules() {
         {RULES.map(({ icon: Icon, title, text }, i) => (
           <article
             key={title}
-            className="card reveal flex min-h-[220px] flex-col justify-between p-6"
+            className="card reveal flex flex-col justify-between p-6 sm:min-h-[200px]"
             style={{ '--d': `${(i % 3) * 0.07}s` } as React.CSSProperties}
           >
             <span className="grid h-11 w-11 place-items-center rounded-xl bg-brand-50">
               <Icon aria-hidden className="h-5 w-5 text-brand" />
             </span>
-            <div className="mt-10">
+            <div className="mt-6 sm:mt-10">
               <h3 className="text-lg font-bold tracking-tight text-ink">{title}</h3>
               <p className="mt-1.5 text-[15px] leading-relaxed text-body">{text}</p>
             </div>

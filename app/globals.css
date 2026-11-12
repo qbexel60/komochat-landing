@@ -7,7 +7,7 @@
  * gold as small accents, Night and Ink as the darks.
  */
 @theme inline {
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), var(--font-hind), ui-sans-serif, system-ui, sans-serif;
   --font-bangla: var(--font-hind), var(--font-jakarta), sans-serif;
 
   --color-brand: #5b4bff;
@@ -25,7 +25,7 @@
   --color-muted: #62687e;
   --color-line: #e5e4f4;
   --color-canvas: #f6f6ff;
-  --color-ok: #1f9d55;
+  --color-ok: #13803b;
   --color-automate: #2a5bff;
 
   --shadow-card: 0 1px 2px rgb(91 75 255 / 0.06), 0 10px 24px -6px rgb(91 75 255 / 0.1);
@@ -77,12 +77,14 @@
   letter-spacing: -0.035em;
   line-height: 1.05;
   font-size: clamp(2.25rem, 1.1rem + 4.6vw, 4.25rem);
+  text-wrap: balance;
 }
 .h-section {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
   font-size: clamp(1.875rem, 1.2rem + 2.4vw, 3rem);
+  text-wrap: balance;
 }
 .text-gradient {
   background-image: linear-gradient(95deg, #5b4bff 0%, #3827c8 55%, #8c84ff 100%);
@@ -161,6 +163,16 @@
 .btn-lg .btn-dot {
   width: 32px;
   height: 32px;
+}
+@media (max-width: 639px) {
+  .btn-lg {
+    padding: 8px 8px 8px 20px;
+    font-size: 15px;
+  }
+  .btn-lg .btn-dot {
+    width: 30px;
+    height: 30px;
+  }
 }
 .btn-dot::before {
   content: '';

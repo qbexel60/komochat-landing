@@ -55,7 +55,8 @@ export default function Compare() {
           By hand <ArrowRight aria-hidden className="h-4 w-4 text-brand" /> With KomoChat
         </p>
         <h2 id="compare-title" className="h-section reveal mt-3 text-ink">
-          One order at 2:14 AM. <span className="text-gradient">Two very different mornings.</span>
+          One order at 2:14&nbsp;AM. <br className="hidden sm:block" />
+          <span className="text-gradient">Two very different mornings.</span>
         </h2>
         <p className="reveal mt-4 text-base leading-relaxed text-body sm:text-lg">
           An example night: a customer sends a voice note asking about a dress.

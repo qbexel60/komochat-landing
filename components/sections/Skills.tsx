@@ -31,7 +31,8 @@ export default function Skills() {
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-[640px]">
           <h2 id="skills-title" className="h-section reveal text-ink">
-            One salesman. <span className="text-gradient">Every skill a shop needs.</span>
+            One salesman. <br className="hidden sm:block" />
+            <span className="text-gradient">Every skill a shop needs.</span>
           </h2>
           <p className="reveal mt-4 text-base leading-relaxed text-body sm:text-lg" style={{ '--d': '0.08s' } as React.CSSProperties}>
             KomoChat learns your products, prices, stock, delivery charges and payment rules. Then it sells the way

@@ -16,7 +16,7 @@ export default function NightShift() {
         <div>
           <h2 id="night-title" className="h-section text-ink">
             Replies in seconds. <br className="hidden sm:block" />
-            <span className="text-gradient">Even at 2 AM.</span>
+            <span className="text-gradient">Even at 2&nbsp;AM.</span>
           </h2>
           <p className="mt-5 max-w-[460px] text-base leading-relaxed text-body sm:text-lg">
             Customers message when they are free, and that is often late at night. KomoChat reads each message, checks
@@ -47,7 +47,7 @@ export default function NightShift() {
             <div className="relative lg:absolute lg:right-9 lg:top-9 lg:text-right">
               <p className="text-4xl font-bold tracking-tight text-white tabular-nums sm:text-6xl">2:14 AM</p>
               <p className="mt-2 max-w-[220px] text-sm text-white/75 sm:max-w-none sm:text-base">
-                Your shop is asleep. <span className="font-semibold text-white">KomoChat is not.</span>
+                Your shop is asleep. <span className="whitespace-nowrap font-semibold text-white">KomoChat is not.</span>
               </p>
             </div>
           </div>

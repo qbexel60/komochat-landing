@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useTransform,
 } from 'motion/react';
-import { ArrowRight, Check, Clock3, RotateCcw } from 'lucide-react';
+import { ArrowRight, Check, Clock3, RotateCcw, Zap } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import KomoSymbol from '@/components/ui/KomoSymbol';
 import { usePrefersReducedMotion } from '@/lib/hooks';
@@ -169,67 +169,105 @@ function Column({
     return () => controls.stop();
   }, [target, reduce, minutes]);
 
+  const pct = (shown / steps.length) * 100;
+  const head = (light: boolean) => (
+    <div className="flex items-center justify-between gap-3 p-4 sm:p-5">
+      <div className="min-w-0">
+        <h3 className={`text-lg font-semibold tracking-tight sm:text-xl ${light ? 'text-white' : 'text-ink'}`}>{title}</h3>
+        {complete ? (
+          <span
+            className={`mt-1 inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold ${
+              komo ? 'bg-gold text-ink' : light ? 'bg-white text-ink' : 'bg-ink text-white'
+            }`}
+          >
+            {komo && <Zap aria-hidden className="h-3 w-3 fill-current" />}
+            {komo ? 'Done' : 'Finally done'}
+          </span>
+        ) : (
+          <p className={`text-sm ${light ? 'text-white/75' : 'text-muted'}`}>{subtitle}</p>
+        )}
+      </div>
+      <p
+        className={`flex shrink-0 items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold tabular-nums ${
+          light ? 'bg-white text-ink' : komo ? 'bg-brand-50 text-brand' : 'bg-[#f1f1f6] text-ink'
+        }`}
+      >
+        <Clock3 aria-hidden className="h-4 w-4" />
+        <m.span>{label}</m.span>
+      </p>
+    </div>
+  );
+
   return (
     <div className="flex flex-col gap-3">
+      {/* Header: fills with colour as the steps get done */}
       <div
         ref={headRef}
-        className="reveal flex items-center justify-between gap-3 rounded-[20px] border border-line bg-white p-4 shadow-[var(--shadow-card)] sm:p-5"
+        className="reveal relative overflow-hidden rounded-[20px] border border-line bg-white shadow-[var(--shadow-card)]"
       >
-        <div>
-          <h3 className="text-lg font-bold tracking-tight text-ink sm:text-xl">{title}</h3>
-          <p className="text-sm text-muted">{subtitle}</p>
-        </div>
-        <p
-          className={`flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold tabular-nums ${
-            komo ? 'bg-brand-50 text-brand' : 'bg-[#f1f1f6] text-ink'
+        <span className="sr-only">
+          Clock: <m.span>{label}</m.span>
+        </span>
+        <div aria-hidden>{head(false)}</div>
+        <div
+          aria-hidden
+          className={`absolute inset-0 transition-[clip-path] duration-700 ease-out motion-reduce:transition-none ${
+            komo ? 'bg-brand' : 'bg-ink'
           }`}
+          style={{ clipPath: `inset(0 ${100 - pct}% 0 0)` }}
         >
-          <Clock3 aria-hidden className="h-4 w-4" />
-          <span className="sr-only">Clock: </span>
-          <m.span>{label}</m.span>
-        </p>
+          {head(true)}
+        </div>
       </div>
 
-      <ol className="flex flex-col gap-3">
+      {/* Steps: finished ones fold down to a single line */}
+      <ol className="card overflow-hidden rounded-[20px]">
         {steps.map((step, i) => {
           const isDone = i < shown;
           const isActive = i === shown && started && !reduce;
+          const open = !isDone || (complete && i === steps.length - 1);
           return (
             <li
               key={step.title}
-              className={`rounded-[18px] border bg-white p-4 shadow-[var(--shadow-card)] transition-[border-color,box-shadow] duration-500 ${
-                isActive ? (komo ? 'border-brand-300 ring-4 ring-brand/10' : 'border-[#cfd0db] ring-4 ring-ink/5') : 'border-line'
+              className={`border-t border-line px-4 py-3.5 transition-colors duration-500 first:border-t-0 sm:px-5 ${
+                isActive ? (komo ? 'bg-brand-50' : 'bg-[#f5f5f9]') : 'bg-white'
               }`}
             >
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-3">
                 {komo ? (
-                  <KomoSymbol className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand" />
+                  <KomoSymbol className="h-[18px] w-[18px] shrink-0 text-brand" />
                 ) : (
-                  <Clock3 aria-hidden className="mt-0.5 h-[18px] w-[18px] shrink-0 text-muted" />
+                  <Clock3 aria-hidden className="h-[18px] w-[18px] shrink-0 text-muted" />
                 )}
-                <div className="min-w-0 flex-1">
-                  <p className="text-[15px] font-bold text-ink">
-                    {i + 1}. {step.title}
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-body">{step.text}</p>
-                </div>
+                <p className={`min-w-0 flex-1 text-[15px] font-semibold ${isDone || isActive ? 'text-ink' : 'text-body'}`}>
+                  {i + 1}. {step.title}
+                </p>
                 <span
                   aria-hidden
-                  className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border-2 transition-colors duration-300 ${
+                  className={`grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full border-2 transition-colors duration-300 ${
                     isDone
                       ? komo
                         ? 'border-brand bg-brand text-white'
-                        : 'border-[#8b90a4] bg-[#8b90a4] text-white'
+                        : 'border-ink bg-ink text-white'
                       : isActive
                         ? komo
                           ? 'border-brand'
-                          : 'border-[#8b90a4]'
+                          : 'border-ink/50'
                         : 'border-line'
                   }`}
                 >
-                  {isDone && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+                  {isDone && <Check className="h-3 w-3" strokeWidth={3.5} />}
                 </span>
                 <span className="sr-only">{isDone ? 'done' : 'not yet'}</span>
+              </div>
+              <div
+                className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out motion-reduce:transition-none ${
+                  open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="pl-[30px] pt-1 text-sm leading-relaxed text-body">{step.text}</p>
+                </div>
               </div>
             </li>
           );

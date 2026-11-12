@@ -68,10 +68,10 @@ export default function InsideAutoMate() {
         />
         <div className="relative mx-auto max-w-[1100px]">
           <div className="mx-auto max-w-[720px] text-center">
-            <p className="reveal mx-auto flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-1.5 text-sm font-semibold text-white/85">
+            <p className="reveal mx-auto flex w-fit items-center gap-2.5 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white/85">
+              Runs inside
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/automate-a-light-blue.svg" alt="" width={16} height={16} className="h-4 w-4" />
-              Runs inside AutoMate
+              <img src="/brand/automate-logo-color-on-dark.svg" alt="AutoMate" width={88} height={19} className="h-[19px] w-auto" />
             </p>
             <h2 id="automate-title" className="h-section reveal mt-5 text-white">
               Part of AutoMate. <br className="hidden sm:block" />
@@ -191,7 +191,7 @@ function OrdersMock() {
     <div className="w-full max-w-[560px] rounded-[22px] bg-white p-4 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.6)] sm:p-5">
       <div className="flex items-center justify-between border-b border-line pb-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/automate-logo-color-on-light.svg" alt="AutoMate" width={110} height={24} className="h-[18px] w-auto" />
+        <img src="/brand/automate-logo-color-on-light.svg" alt="AutoMate" width={92} height={20} className="h-5 w-auto" />
         <p className="text-xs font-semibold text-muted">Orders · today</p>
       </div>
       <ul className="mt-2 divide-y divide-line">

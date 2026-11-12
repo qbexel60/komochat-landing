@@ -17,3 +17,6 @@ npm-debug.log*
 
 # Riad's style kit (third-party screenshots and fonts): a local reference only
 /omniagent-design/
+
+# browser-testing logs
+/.playwright-mcp/

@@ -1,7 +1,7 @@
 'use client';
 
 import { useInView } from 'motion/react';
-import { useEffect, useState, useSyncExternalStore, type RefObject } from 'react';
+import { useCallback, useEffect, useState, useSyncExternalStore, type RefObject } from 'react';
 
 const REDUCE = '(prefers-reduced-motion: reduce)';
 const subscribe = (onChange: () => void) => {
@@ -42,4 +42,21 @@ export function useSteps(durations: number[], active: boolean, restStep = durati
   }, [step, active, reduce, durations]);
 
   return reduce ? restStep : step;
+}
+
+/** True while a media query matches. False during hydration (matches the server HTML), then the real value. */
+export function useMediaQuery(query: string) {
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      const mq = window.matchMedia(query);
+      mq.addEventListener('change', onChange);
+      return () => mq.removeEventListener('change', onChange);
+    },
+    [query],
+  );
+  return useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
 }

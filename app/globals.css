@@ -73,17 +73,17 @@
 @layer components {
 /* ---------- Type ---------- */
 .h-display {
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  font-size: clamp(2.25rem, 1.1rem + 4.6vw, 4.25rem);
+  font-weight: 650;
+  letter-spacing: -0.032em;
+  line-height: 1.12;
+  font-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.625rem);
   text-wrap: balance;
 }
 .h-section {
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  font-size: clamp(1.875rem, 1.2rem + 2.4vw, 3rem);
+  font-weight: 650;
+  letter-spacing: -0.028em;
+  line-height: 1.12;
+  font-size: clamp(1.75rem, 1.2rem + 1.9vw, 2.75rem);
   text-wrap: balance;
 }
 .text-gradient {
@@ -234,6 +234,21 @@
 }
 
 /* ---------- Loops ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
 @keyframes float {
   0%,
   100% {
@@ -297,6 +312,19 @@
     transform: scaleX(1);
   }
 }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes travel {
+  from {
+    stroke-dashoffset: 14;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
 @keyframes scan {
   0% {
     transform: translateY(-100%);
@@ -329,6 +357,31 @@
 .scan-line {
   animation: scan 1.6s ease-in-out infinite;
 }
+.spin-a {
+  animation: spin 46s linear infinite;
+}
+.spin-a-rev {
+  animation: spin 46s linear infinite reverse;
+}
+.spin-b {
+  animation: spin 66s linear infinite reverse;
+}
+.spin-b-rev {
+  animation: spin 66s linear infinite;
+}
+.spin-dot {
+  animation: spin 9s linear infinite;
+}
+.spin-fast {
+  animation: spin 2.4s linear infinite;
+}
+.spin-fast-rev {
+  animation: spin 3.6s linear infinite reverse;
+}
+.travel {
+  stroke-dasharray: 14 100;
+  animation: travel 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
 
 .marquee-track {
   animation: marquee 48s linear infinite;
@@ -345,6 +398,14 @@
 [data-paused='true'] .dash-flow,
 [data-paused='true'] .live-dot,
 [data-paused='true'] .scan-line,
+[data-paused='true'] .spin-a,
+[data-paused='true'] .spin-a-rev,
+[data-paused='true'] .spin-b,
+[data-paused='true'] .spin-b-rev,
+[data-paused='true'] .spin-dot,
+[data-paused='true'] .spin-fast,
+[data-paused='true'] .spin-fast-rev,
+[data-paused='true'] .travel,
 [data-paused='true'] .marquee-track {
   animation-play-state: paused;
 }
@@ -356,7 +417,15 @@
   .wave-bar,
   .dash-flow,
   .live-dot,
-  .scan-line {
+  .scan-line,
+  .spin-a,
+  .spin-a-rev,
+  .spin-b,
+  .spin-b-rev,
+  .spin-dot,
+  .spin-fast,
+  .spin-fast-rev,
+  .travel {
     animation: none;
   }
   .ring-out {

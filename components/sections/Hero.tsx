@@ -13,8 +13,8 @@ export default function Hero() {
 
       {/* Faint guide lines at the content edges, as in the kit */}
       <div aria-hidden className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-[1200px] -translate-x-1/2 xl:block">
-        <span className="absolute inset-y-0 left-0 w-px bg-[linear-gradient(180deg,transparent,rgb(197_193_235/0.7)_30%,rgb(197_193_235/0.7)_80%,transparent)]" />
-        <span className="absolute inset-y-0 right-0 w-px bg-[linear-gradient(180deg,transparent,rgb(197_193_235/0.7)_30%,rgb(197_193_235/0.7)_80%,transparent)]" />
+        <span className="absolute inset-y-0 left-0 w-px bg-[linear-gradient(180deg,rgb(255_255_255/0.9),#fff_40%,#fff_85%,transparent)]" />
+        <span className="absolute inset-y-0 right-0 w-px bg-[linear-gradient(180deg,rgb(255_255_255/0.9),#fff_40%,#fff_85%,transparent)]" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center px-4 text-center sm:px-6">

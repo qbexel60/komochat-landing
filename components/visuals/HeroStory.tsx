@@ -81,7 +81,7 @@ export default function HeroStory() {
               {g.lanes.map((y, i) => (
                 <div key={i}>
                   <span
-                    className="absolute left-[-30vw] right-[-30vw] h-[1.5px] bg-[linear-gradient(90deg,transparent,rgb(214_210_255/0.95)_18%,rgb(214_210_255/0.95)_82%,transparent)]"
+                    className="absolute left-[-30vw] right-[-30vw] h-[1.5px] bg-[linear-gradient(90deg,transparent,#fff_14%,#fff_86%,transparent)]"
                     style={{ top: `calc(50% + ${y}px)` }}
                   />
                   <m.span

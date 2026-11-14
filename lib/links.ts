@@ -15,9 +15,9 @@ export const EMAIL = 'admin@qbexel.com';
 export const PHONE_LABEL = '+880 1982-780739';
 export const PHONE_HREF = 'tel:+8801982780739';
 export const WHATSAPP_URL = 'https://wa.me/8801982780739';
-/** Main office first (current trade licence); the Dhaka office is the address Meta verified. */
+/** Tangail first (current trade licence); Dhaka is the address Meta verified. */
 export const OFFICES = [
-  { label: 'Registered office', address: 'Shibnath School Market, Tuhin Road, Tangail, Bangladesh' },
+  { label: 'Tangail office', address: 'Shibnath School Market, Tuhin Road, Tangail, Bangladesh' },
   { label: 'Dhaka office', address: 'Road 1, Nikunja 2, Khilkhet, Dhaka 1216, Bangladesh' },
 ] as const;
 export const FACEBOOK_URL = 'https://www.facebook.com/qbexel';

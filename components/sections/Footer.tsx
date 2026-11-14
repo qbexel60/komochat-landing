@@ -5,7 +5,7 @@ import {
   FACEBOOK_URL,
   LINKEDIN_URL,
   NAV_LINKS,
-  OFFICE,
+  OFFICES,
   PHONE_HREF,
   PHONE_LABEL,
   PRIVACY_URL,
@@ -58,7 +58,12 @@ export default function Footer() {
             <p className="mt-4 max-w-[320px] text-[15px] leading-relaxed text-body">
               The AI salesman for online shops in Bangladesh. Launching soon, inside AutoMate.
             </p>
-            <p className="mt-4 text-sm text-muted">Made by Qbexel · {OFFICE}</p>
+            <div className="mt-4 space-y-1 text-sm text-muted">
+              <p>Made by Qbexel</p>
+              {OFFICES.map((o) => (
+                <p key={o.label}>{o.label}: {o.address}</p>
+              ))}
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {columns.map((col) => (

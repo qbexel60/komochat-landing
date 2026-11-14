@@ -15,7 +15,7 @@ export const EMAIL = 'admin@qbexel.com';
 export const PHONE_LABEL = '+880 1982-780739';
 export const PHONE_HREF = 'tel:+8801982780739';
 export const WHATSAPP_URL = 'https://wa.me/8801982780739';
-export const OFFICE = 'Nikunjo-2, Dhaka, Bangladesh';
+export const OFFICE = 'Shibnath School Market, Tuhin Road, Tangail, Bangladesh';
 export const FACEBOOK_URL = 'https://www.facebook.com/qbexel';
 export const LINKEDIN_URL = 'https://www.linkedin.com/company/104429970';
 

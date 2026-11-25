@@ -20,18 +20,20 @@ const hind = Hind_Siliguri({
   preload: false,
 });
 
-const title = 'KomoChat by Qbexel | The AI salesman for online shops in Bangladesh';
+const title = 'KomoChat by Qbexel | AI salesman for online shops, Bangla first';
 const description =
-  'KomoChat answers your customers on Messenger and Instagram like a good salesperson: short, warm, in Bangla or Banglish, day and night. It takes the order and puts it straight into AutoMate. Launching soon.';
+  'KomoChat answers your customers on Messenger and Instagram like a good salesperson: short, warm, in local languages (Bangla and Banglish first), day and night. It takes the order and puts it straight into AutoMate. Launching soon.';
 const shareTitle = 'KomoChat: never lose a sale to a late reply';
 const shareDescription =
   'An AI salesman for your online shop. Replies on Messenger and Instagram in Bangla or Banglish, day and night, and puts orders straight into AutoMate. Launching soon.';
 
-// Set NEXT_PUBLIC_SITE_URL to the live address at build time, so link previews get absolute image URLs.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// Link previews need absolute URLs. NEXT_PUBLIC_SITE_URL wins when set; otherwise the live address is used
+// (without this, Vercel falls back to its own *.vercel.app address).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://komochat.qbexel.com';
 
 export const metadata: Metadata = {
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: '/' },
   title,
   description,
   applicationName: 'KomoChat',
@@ -47,6 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    url: '/',
     siteName: 'KomoChat by Qbexel',
     title: shareTitle,
     description: shareDescription,

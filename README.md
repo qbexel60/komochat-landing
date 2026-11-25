@@ -23,7 +23,8 @@ npm run build      # writes the static site to out/
 npm start          # serves out/ on http://localhost:3050
 ```
 
-`npm run lint` and `npm run typecheck` must stay clean.
+`npm run lint` and `npm run typecheck` must stay clean. `NEXT_PUBLIC_SITE_URL` overrides the site address (default:
+the live https://komochat.qbexel.com) at build time, so link previews get absolute image URLs.
 
 ## Where things are
 

@@ -3,6 +3,7 @@ import { Hind_Siliguri, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Providers from '@/components/Providers';
 import RevealObserver from '@/components/RevealObserver';
+import { THIS_SITE_URL } from '@/lib/links';
 
 // Qbexel's font, variable: one file covers every weight the page uses.
 const jakarta = Plus_Jakarta_Sans({
@@ -29,7 +30,7 @@ const shareDescription =
 
 // Link previews need absolute URLs. NEXT_PUBLIC_SITE_URL wins when set; otherwise the live address is used
 // (without this, Vercel falls back to its own *.vercel.app address).
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://komochat.qbexel.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || THIS_SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

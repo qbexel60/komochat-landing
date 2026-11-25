@@ -43,3 +43,11 @@ the live https://komochat.qbexel.com) at build time, so link previews get absolu
 | FAQ, get started, footer | `components/sections/FAQ.tsx`, `GetStarted.tsx`, `Footer.tsx` |
 
 Motion rests while a section is off screen and turns off for visitors who ask for reduced motion.
+
+## Links between the five product sites
+
+The five sites (getautomate, getkomobox, komochat, komovoice, eastrak `.qbexel.com`) live in one list in
+`lib/links.ts` (`PRODUCT_SITES`, `THIS_PRODUCT`). The family cards ("Visit KomoBox →", whole card clickable,
+`components/ui/VisitLink.tsx`), the grid button beside the logo (wide screens, `ProductMenu.tsx`), the "Qbexel
+products" part of the phone menu and the footer's Products row (`ProductSites.tsx`) all read it. This page is marked
+"You are here" and never linked. Same tab, plain links. The same list sets the link-preview address.

@@ -3,6 +3,7 @@
 import { AnimatePresence, m } from 'motion/react';
 import { Check } from 'lucide-react';
 import { useId, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
+import VisitLink from '@/components/ui/VisitLink';
 
 type Tab = {
   label: string;
@@ -37,8 +38,9 @@ const TABS: Tab[] = [
 ];
 
 /** The rest of Qbexel's family, with the same status words on every product page. */
-const FAMILY: { name: string; logo: { src: string; w: number }; status: string; live: boolean; text: string }[] = [
+const FAMILY: { id: string; name: string; logo: { src: string; w: number }; status: string; live: boolean; text: string }[] = [
   {
+    id: 'automate',
     name: 'AutoMate',
     logo: { src: '/brand/automate-logo-color-on-dark.svg', w: 703 },
     status: 'Live',
@@ -46,6 +48,7 @@ const FAMILY: { name: string; logo: { src: string; w: number }; status: string; 
     text: 'Orders, couriers, cash on delivery, stock and profit in one app. KomoChat runs inside it.',
   },
   {
+    id: 'komobox',
     name: 'KomoBox',
     logo: { src: '/brand/komobox-logo-color-on-dark.svg', w: 692 },
     status: 'Live in AutoMate',
@@ -53,6 +56,7 @@ const FAMILY: { name: string; logo: { src: string; w: number }; status: string; 
     text: 'The team inbox for Messenger and Instagram, where KomoChat hands chats to your staff.',
   },
   {
+    id: 'komovoice',
     name: 'KomoVoice',
     logo: { src: '/brand/komovoice-logo-color-on-dark.svg', w: 825 },
     status: 'Live',
@@ -60,6 +64,7 @@ const FAMILY: { name: string; logo: { src: string; w: number }; status: string; 
     text: 'The AI phone agent. It calls customers in Bangla to confirm cash-on-delivery orders.',
   },
   {
+    id: 'eastrak',
     name: 'Eastrak',
     logo: { src: '/brand/eastrak-logo-color-on-dark.svg', w: 551 },
     status: 'Early access',
@@ -184,7 +189,7 @@ export default function InsideAutoMate() {
               {FAMILY.map((p, i) => (
                 <li
                   key={p.name}
-                  className="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+                  className="reveal group relative rounded-2xl border border-white/10 bg-white/[0.04] p-5"
                   style={{ '--d': `${i * 0.06}s` } as CSSProperties}
                 >
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -200,6 +205,7 @@ export default function InsideAutoMate() {
                     </span>
                   </div>
                   <p className="mt-3 text-[14.5px] leading-relaxed text-white/70">{p.text}</p>
+                  <VisitLink id={p.id} name={p.name} className="text-brand-light" />
                 </li>
               ))}
             </ul>

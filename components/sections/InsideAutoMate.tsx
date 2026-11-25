@@ -2,7 +2,7 @@
 
 import { AnimatePresence, m } from 'motion/react';
 import { Check } from 'lucide-react';
-import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useId, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react';
 
 type Tab = {
   label: string;
@@ -36,7 +36,39 @@ const TABS: Tab[] = [
   },
 ];
 
-/** Dark band: how KomoChat fits with AutoMate and KomoBox, as three tabs. */
+/** The rest of Qbexel's family, with the same status words on every product page. */
+const FAMILY: { name: string; logo: { src: string; w: number }; status: string; live: boolean; text: string }[] = [
+  {
+    name: 'AutoMate',
+    logo: { src: '/brand/automate-logo-color-on-dark.svg', w: 703 },
+    status: 'Live',
+    live: true,
+    text: 'Orders, couriers, cash on delivery, stock and profit in one app. KomoChat runs inside it.',
+  },
+  {
+    name: 'KomoBox',
+    logo: { src: '/brand/komobox-logo-color-on-dark.svg', w: 692 },
+    status: 'Live in AutoMate',
+    live: true,
+    text: 'The team inbox for Messenger and Instagram, where KomoChat hands chats to your staff.',
+  },
+  {
+    name: 'KomoVoice',
+    logo: { src: '/brand/komovoice-logo-color-on-dark.svg', w: 825 },
+    status: 'Live',
+    live: true,
+    text: 'The AI phone agent. It calls customers in Bangla to confirm cash-on-delivery orders.',
+  },
+  {
+    name: 'Eastrak',
+    logo: { src: '/brand/eastrak-logo-color-on-dark.svg', w: 551 },
+    status: 'Early access',
+    live: false,
+    text: 'Server-side tracking for your ads, so Meta, Google and TikTok see every sale.',
+  },
+];
+
+/** Dark band: how KomoChat fits with AutoMate and KomoBox, as three tabs, then the rest of the family. */
 export default function InsideAutoMate() {
   const id = useId();
   const [active, setActive] = useState(0);
@@ -144,6 +176,33 @@ export default function InsideAutoMate() {
               <h3 className="text-2xl font-bold tracking-tight text-white sm:text-[28px]">{tab.heading}</h3>
               <p className="text-base leading-relaxed text-white/70 sm:text-lg">{tab.text}</p>
             </div>
+          </div>
+
+          <div className="mt-14 border-t border-white/10 pt-10 sm:mt-16 sm:pt-12">
+            <h3 className="reveal text-center text-lg font-bold tracking-tight text-white sm:text-xl">The Qbexel family</h3>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {FAMILY.map((p, i) => (
+                <li
+                  key={p.name}
+                  className="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+                  style={{ '--d': `${i * 0.06}s` } as CSSProperties}
+                >
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.logo.src} alt={p.name} width={p.logo.w} height={152} className="h-[19px] w-auto" />
+                    <span
+                      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11.5px] font-semibold ${
+                        p.live ? 'bg-[#1f9d55]/15 text-[#6fdc9b]' : 'bg-white/10 text-white/80'
+                      }`}
+                    >
+                      {p.live && <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#3ccb7f]" />}
+                      {p.status}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-white/70">{p.text}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

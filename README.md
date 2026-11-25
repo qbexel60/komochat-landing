@@ -8,7 +8,10 @@ style of Riad's design kit (`omniagent-design/`, kept local and out of git); all
 - Colours: KomoChat purple `#5B4BFF` and light purple `#8C84FF`; Qbexel indigo `#3827C8` and gold `#FDC448` as small
   accents; Night `#060B1E`, Ink `#0A0E1F`. Tokens live in `app/globals.css`.
 - Every sign-up button goes to AutoMate sign-up (`lib/links.ts`). The enterprise "Talk to us" buttons go to the
-  WhatsApp, phone and email cards (`#contact`). KomoChat is "launching soon"; WhatsApp and TikTok "later".
+  WhatsApp, phone and email cards (`#contact`). Status words are the same on all five product pages: AutoMate
+  `Live`, KomoBox `Live in AutoMate`, KomoVoice `Live`, KomoChat `Launching soon`, Eastrak `Early access`; WhatsApp and
+  TikTok "later". The dark "Part of AutoMate" band ends with the rest of the family (AutoMate, KomoBox, KomoVoice,
+  Eastrak). Contact email: business@qbexel.com.
 - Example chats, prices and orders are labelled as examples. No invented numbers, reviews, customer logos or prices.
 
 ## Run

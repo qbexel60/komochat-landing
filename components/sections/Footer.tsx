@@ -56,7 +56,8 @@ export default function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/komochat-logo-color-on-light.svg" alt="KomoChat" width={168} height={28} className="h-7 w-auto" />
             <p className="mt-4 max-w-[320px] text-[15px] leading-relaxed text-body">
-              The AI salesman for online shops in Bangladesh. Launching soon, inside AutoMate.
+              The AI salesman for online shops. Local languages, Bangla first, starting in Bangladesh. Launching soon,
+              inside AutoMate.
             </p>
             <div className="mt-4 space-y-1 text-sm text-muted">
               <p>Made by Qbexel</p>

@@ -11,7 +11,7 @@ export const PRIVACY_URL = 'https://automate.qbexel.com/privacy';
 export const TERMS_URL = 'https://automate.qbexel.com/terms';
 export const DATA_DELETION_URL = 'https://automate.qbexel.com/data-deletion';
 
-export const EMAIL = 'admin@qbexel.com';
+export const EMAIL = 'business@qbexel.com';
 export const PHONE_LABEL = '+880 1982-780739';
 export const PHONE_HREF = 'tel:+8801982780739';
 export const WHATSAPP_URL = 'https://wa.me/8801982780739';
@@ -21,7 +21,7 @@ export const OFFICES = [
   { label: 'Dhaka office', address: 'Road 1, Nikunja 2, Khilkhet, Dhaka 1216, Bangladesh' },
 ] as const;
 export const FACEBOOK_URL = 'https://www.facebook.com/qbexel';
-export const LINKEDIN_URL = 'https://www.linkedin.com/company/104429970';
+export const LINKEDIN_URL = 'https://www.linkedin.com/company/qbexel/';
 
 /** In-page sections, used by the menu and the footer. */
 export const NAV_LINKS = [

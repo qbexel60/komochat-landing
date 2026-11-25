@@ -1,4 +1,5 @@
 import Compare from '@/components/sections/Compare';
+import Enterprise from '@/components/sections/Enterprise';
 import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/sections/Footer';
 import GetStarted from '@/components/sections/GetStarted';
@@ -24,6 +25,7 @@ export default function Home() {
         <Situations />
         <Rules />
         <InsideAutoMate />
+        <Enterprise />
         <FAQ />
         <GetStarted />
       </main>

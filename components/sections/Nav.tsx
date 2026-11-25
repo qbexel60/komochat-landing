@@ -68,7 +68,7 @@ export default function Nav() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-full px-3.5 py-2 text-[15px] font-medium text-body transition-colors hover:bg-brand-50 hover:text-ink"
+                  className="whitespace-nowrap rounded-full px-2 py-2 text-[14px] font-medium text-body transition-colors hover:bg-brand-50 hover:text-ink xl:px-3.5 xl:text-[15px]"
                 >
                   {link.label}
                 </a>
@@ -79,7 +79,7 @@ export default function Nav() {
           <div className="flex items-center gap-1.5">
             <a
               href={SIGN_IN_URL}
-              className="hidden rounded-full px-3.5 py-2 text-[15px] font-semibold text-ink transition-colors hover:bg-brand-50 sm:inline-block"
+              className="hidden whitespace-nowrap rounded-full px-3.5 py-2 text-[15px] font-semibold text-ink transition-colors hover:bg-brand-50 sm:inline-block"
             >
               Sign in
             </a>

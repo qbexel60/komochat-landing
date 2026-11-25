@@ -7,7 +7,8 @@ style of Riad's design kit (`omniagent-design/`, kept local and out of git); all
 - Font: Plus Jakarta Sans (Qbexel). Hind Siliguri only for Bangla text and the taka sign.
 - Colours: KomoChat purple `#5B4BFF` and light purple `#8C84FF`; Qbexel indigo `#3827C8` and gold `#FDC448` as small
   accents; Night `#060B1E`, Ink `#0A0E1F`. Tokens live in `app/globals.css`.
-- Every button goes to AutoMate sign-up (`lib/links.ts`). KomoChat is "launching soon"; WhatsApp and TikTok "later".
+- Every sign-up button goes to AutoMate sign-up (`lib/links.ts`). The enterprise "Talk to us" buttons go to the
+  WhatsApp, phone and email cards (`#contact`). KomoChat is "launching soon"; WhatsApp and TikTok "later".
 - Example chats, prices and orders are labelled as examples. No invented numbers, reviews, customer logos or prices.
 
 ## Run
@@ -34,6 +35,7 @@ npm start          # serves out/ on http://localhost:3050
 | Chat moments (tabs) | `components/sections/Situations.tsx`, `components/visuals/SituationDemos.tsx` |
 | Your rules | `components/sections/Rules.tsx` |
 | Inside AutoMate (dark) | `components/sections/InsideAutoMate.tsx` |
+| KomoChat for enterprises (custom AI, Qbot, how a project works) | `components/sections/Enterprise.tsx`, `components/visuals/EnterpriseVisual.tsx` |
 | FAQ, get started, footer | `components/sections/FAQ.tsx`, `GetStarted.tsx`, `Footer.tsx` |
 
 Motion rests while a section is off screen and turns off for visitors who ask for reduced motion.

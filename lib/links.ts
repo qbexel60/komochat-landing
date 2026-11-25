@@ -29,5 +29,9 @@ export const NAV_LINKS = [
   { label: 'How it works', href: '#compare' },
   { label: 'Your rules', href: '#rules' },
   { label: 'AutoMate', href: '#automate' },
+  { label: 'Enterprise', href: '#enterprise' },
   { label: 'FAQ', href: '#faq' },
 ] as const;
+
+/** "Talk to us" buttons go to the WhatsApp, phone and email cards near the end of the page. */
+export const CONTACT_HREF = '#contact';

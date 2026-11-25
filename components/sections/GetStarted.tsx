@@ -35,10 +35,14 @@ export default function GetStarted() {
         </div>
       </div>
 
-      <div className="reveal mt-5 grid gap-3 sm:grid-cols-3">
-        <ContactCard href={WHATSAPP_URL} external icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Chat with the Qbexel team" />
-        <ContactCard href={PHONE_HREF} icon={<Phone className="h-5 w-5" />} label="Call" value={PHONE_LABEL} />
-        <ContactCard href={`mailto:${EMAIL}`} icon={<Mail className="h-5 w-5" />} label="Email" value={EMAIL} />
+      {/* "Talk to us" buttons land here, so a short line says who answers */}
+      <div id="contact" className="reveal mt-10">
+        <h3 className="text-center text-base font-semibold text-ink">Talk to the Qbexel team, for your shop or your company</h3>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <ContactCard href={WHATSAPP_URL} external icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Chat with the Qbexel team" />
+          <ContactCard href={PHONE_HREF} icon={<Phone className="h-5 w-5" />} label="Call" value={PHONE_LABEL} />
+          <ContactCard href={`mailto:${EMAIL}`} icon={<Mail className="h-5 w-5" />} label="Email" value={EMAIL} />
+        </div>
       </div>
     </section>
   );
